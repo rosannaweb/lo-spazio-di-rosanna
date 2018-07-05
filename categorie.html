@@ -1,0 +1,26 @@
+---
+layout: pages
+permalink: /categorie/
+title: Categorie
+---
+
+<ul>
+    {% for category in site.categories %}
+        <div class="block box has-background-info has-small-margins">
+            {% capture category_name %}{{ category | first }}{% endcapture %}
+            <li>
+                <a href="{{ site.url }}/{{ category_name }}"><h3 class="title is-size-3 has-text-white">{{ category_name }}</h3></a>
+                <ul>
+                    {% for post in site.categories[category_name] %}
+                        <a href="{{ site.url }}/{{ post.url }}">
+                            <li class="box has-small-margins">
+                                <h4 class="subtitle is-size-4">{{ post.title }}</h4>
+                                <small><em>Pubblicato il: {{ post.date | date_to_string }}</em></small> 
+                            </li>
+                        </a>
+                    {% endfor %}
+                </ul>
+            </li>
+        </div>
+    {% endfor %}
+</ul>

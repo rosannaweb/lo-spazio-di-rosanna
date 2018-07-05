@@ -1,0 +1,112 @@
+---
+layout: base
+---
+
+<section class="hero is-primary is-medium is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title is-1">{{ site.title }}</h1>
+            <h2 class="subtitle is-2">Idee e Pensieri in Libertà...</h2>
+        </div>
+    </div>
+</section>
+
+<section class="has-medium-margins">
+    <div class="container">
+        <div class="block">
+
+            <div class="block">
+                <!-- BLOCCO PRESENTAZIONE -->
+                <div class="message is-primary">
+                    <div class="message-header">
+                        <h2 class="title is-2 has-text-white"><em>Rosanna Bocchieri: Mi Presento</em></h2>
+                    </div>
+                    <div class="message-body columns is-size-5">
+                        <div class="column is-one-quarter">
+                                <figure class="image">
+                                    <img class="is-rounded" src="{{ site.url }}/assets/img/cute-cat.jpg">
+                                </figure>
+                        </div>
+                        <div class="column">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, ipsum et? Culpa a numquam maxime necessitatibus provident at atque, distinctio quaerat et inventore dicta in aliquam dolor nam, praesentium quo? Nihil vitae amet enim minus officiis cum excepturi alias est culpa saepe at eius eum ut possimus doloremque porro illo sequi atque modi nulla, ducimus iusto, totam architecto sunt? In, aperiam tempora nesciunt eius facere voluptatibus optio nostrum ea eaque obcaecati excepturi corporis assumenda necessitatibus quas consectetur fuga saepe minus enim laborum totam! Nam ratione non natus aperiam quisquam, iste ipsa, iure voluptatem atque illum ullam commodi. Ut, harum excepturi!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="block has-medium-margins">
+                <!-- BLOCCO ARTICOLI -->
+                <h2 class="title is-1">Tutti gli Articoli</h2>
+                <div class="columns is-multiline is-centered">
+                    {% for post in paginator.posts %}
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-content">
+                                    <h2 class="title">{{ post.title }}</h2>
+                                    <h3 class="subtitle"><em>Di {{ post.author }}</em></h3>
+                                    <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 100 }}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="card-footer-item">
+                                        <small>Creato il: {{ post.date | date_to_string }}</small>
+                                    </div>
+                                    <div class="card-footer-item">
+                                        <small><a href="{{ post.url }}">Leggi di più</a></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- BLOCCO PAGINAZIONE -->
+                <div class="block">
+                    <nav class="pagination">
+                        {% if paginator.previous_page %}
+                            <a href="{{ paginator.previous_page_path }}" class="pagination-previous">Più recenti</a>
+                        {% else %}
+                            <a href="#" class="pagination-previous" disabled>Più recenti</a>
+                        {% endif %}
+                        {% if paginator.next_page %}
+                            <a href="{{ paginator.next_page_path }}" class="pagination-next">Più vecchi</a>
+                        {% else %}
+                            <a href="#" class="pagination-next" disabled>Più vecchi</a>
+                        {% endif %}
+                    </nav>
+                </div>
+            </div>
+
+            <hr class="has-medium-margins">
+
+            <div class="block has-medium-margins">
+                <!-- BLOCCO CATEGORIE -->
+                <h2 class="title is-1">Categorie di Pubblicazione</h2>
+                <div class="columns is-multiline is-centered ">
+                    {% for category in site.categories %}
+                        {% capture category_name %}{{ category | first }}{% endcapture %}
+                        <div class="column is-one-half">
+                            <div class="message is-info">
+                                <div class="message-header">
+                                    <h3 class="title is-3  has-text-white"><em>{{ category_name }}</em></h3>
+                                </div>
+                                <div class="message-body">
+                                    <p>
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit facere porro tempora, autem at harum beatae ipsa tempore libero ut dolores earum animi! Fuga, eos error? Iure eligendi suscipit nesciunt praesentium accusamus voluptas, qui facere reiciendis ut explicabo consequuntur voluptates!
+                                    </p>
+                                    <div class="has-small-margins">
+                                        <a class="button is-info is-medium" href="{{ site.url }}/{{ category_name }}">Vedi categoria</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+

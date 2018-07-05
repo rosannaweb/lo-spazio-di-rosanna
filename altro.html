@@ -1,0 +1,13 @@
+---
+layout: pages
+permalink: /altro/
+title: Categoria 'Altro'
+---
+
+<ul>
+    {% for post in site.categories.Altro %}
+        <li>
+            <span>{{ post.date | date_to_string }}</span> &nbsp; <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
