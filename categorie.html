@@ -9,10 +9,10 @@ title: Categorie
         <div class="block box has-background-info has-small-margins">
             {% capture category_name %}{{ category | first }}{% endcapture %}
             <li>
-                <a href="{{ site.url }}/{{ category_name }}"><h3 class="title is-size-3 has-text-white">{{ category_name }}</h3></a>
+                <a href="{{ site.baseurl }}{{ category_name }}"><h3 class="title is-size-3 has-text-white">{{ category_name }}</h3></a>
                 <ul>
                     {% for post in site.categories[category_name] %}
-                        <a href="{{ site.url }}/{{ post.url }}">
+                        <a href="{{ site.baseurl }}{{ post.url }}">
                             <li class="box has-small-margins">
                                 <h4 class="subtitle is-size-4">{{ post.title }}</h4>
                                 <small><em>Pubblicato il: {{ post.date | date_to_string }}</em></small> 

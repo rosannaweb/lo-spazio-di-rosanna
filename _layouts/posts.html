@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ page.title }} | {{ site.title }}</title>
     <meta name="description" content="{{ site.title }} - {{ page.title }}">
-    <link rel="stylesheet" href="{{ site.url }}/assets/css/style.css">
-    <link rel="stylesheet" href="{{ site.url }}/assets/css/posts.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/posts.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
 <body>
@@ -36,13 +36,13 @@
 <nav class="navbar is-primary">
     <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item" href="{{ site.url }}"><strong><em>{{ site.title }}</em></strong></a>
+            <a class="navbar-item" href="{{ site.baseurl }}"><strong><em>{{ site.title }}</em></strong></a>
         </div>
         <div class="navbar-menu is-active">
             <div class="navbar-end">
-                <a class="navbar-item" href="{{ site.url }}"><i class="fas fa-home"></i>&nbsp;Home</a>
-                <a class="navbar-item" href="{{ site.url }}/sul-blog/">Sul Blog</a>
-                <a class="navbar-item" href="{{ site.url }}/riferimenti/">Riferimenti</a>
+                <a class="navbar-item" href="{{ site.baseurl }}"><i class="fas fa-home"></i>&nbsp;Home</a>
+                <a class="navbar-item" href="{{ site.baseurl }}/sul-blog/">Sul Blog</a>
+                <a class="navbar-item" href="{{ site.baseurl }}/riferimenti/">Riferimenti</a>
             </div>
         </div>
     </div>
@@ -57,7 +57,7 @@
                         <h1>{{ page.title }}</h1>
                         <p>
                             <em>
-                                Pubblicato in:&nbsp;{% for category in page.categories %}<a href="{{ site.url }}/{{ category }}"><span class="tag is-primary is-medium">{{ category }}</span></a>{% endfor %}
+                                Pubblicato in:&nbsp;{% for category in page.categories %}<a href="{{ site.baseurl }}{{ category }}"><span class="tag is-primary is-medium">{{ category }}</span></a>{% endfor %}
                             </em>
                         </p>
                         {{ content }}
@@ -68,22 +68,22 @@
                 <div class="column is-one-quarter">
                     <aside class="box">
                         <h3 class="title is-3">Ricerca per Categorie</h3>
-                        <div class="has-small-margins"><a class="subtitle is-4" href="{{ site.url }}/categorie/">Tutte le Categorie <i class="fas fa-angle-double-right"></i></a></div>
+                        <div class="has-small-margins"><a class="subtitle is-4" href="{{ site.baseurl }}/categorie/">Tutte le Categorie <i class="fas fa-angle-double-right"></i></a></div>
                         <ul>
                             {% for category in site.categories %}
                                 {% capture category_name %}{{ category | first }}{% endcapture %}
                                 <li class="box">
-                                    <a href="{{ site.url }}/{{ category_name }}"><strong>{{ category_name }}</strong></a>
+                                    <a href="{{ site.baseurl }}{{ category_name }}"><strong>{{ category_name }}</strong></a>
                                 </li>
                             {% endfor %}
                             </ul>
                         <hr>
                         <h3 class="title is-3">Ricerca per Tags</h3>
-                        <div class="has-small-margins"><a class="subtitle is-4" href="{{ site.url }}/tags/">Tutti i Tags <i class="fas fa-angle-double-right"></i></a></div>
+                        <div class="has-small-margins"><a class="subtitle is-4" href="{{ site.baseurl }}/tags/">Tutti i Tags <i class="fas fa-angle-double-right"></i></a></div>
                         <ul>
                             {% for tag in tags %}
                                 <li class="tag">
-                                    <a href="{{ site.url }}/tags/#{{ tag | slugify }}">{{ tag }}</a>
+                                    <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}">{{ tag }}</a>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -100,7 +100,7 @@
             <p>&copy;&nbsp;2018 - <strong>Lo Spazio di Rosanna</strong></p>
             <p><em>Realizzato con <i class="fas fa-heart"></i></em></p>
             <div>
-                <a href="{{ site.url }}/feed.xml"><small><i class="fas fa-rss"></i>&nbsp;Feed RSS</small></a>
+                <a href="{{ site.baseurl }}/feed.xml"><small><i class="fas fa-rss"></i>&nbsp;Feed RSS</small></a>
             </div>
         </div>
     </div>
